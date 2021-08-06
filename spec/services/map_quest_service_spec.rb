@@ -4,7 +4,7 @@ RSpec.describe MapQuestService do
   it 'returns lat and lon when given a city', :vcr do
     location = 'Denver,CO'
     data = MapQuestService.find_location(location)
-    
+
     expect(data).to be_a(Hash)
     expect(data[:results]).to be_a(Array)
     expect(data[:results][0][:locations]).to be_a(Array)
