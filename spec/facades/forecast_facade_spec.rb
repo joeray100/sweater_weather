@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'ForecastFacade' do
-  it 'returns the lat and long from searching a city, state' do
-    VCR.use_cassette('returns lat and lon when given a city') do
-      coordinates_object = ForecastFacade.city_coordinates_search('Denver,CO')
-
-      expect(coordinates_object).to be_a(Coordinates)
-      expect(coordinates_object.latitude).to be_a(Float)
-      expect(coordinates_object.longitude).to be_a(Float)
-    end
+  it 'returns the forecasted weather for specified location', :vcr do
+    forecast = ForecastFacade.weather_search('Denver,CO')
+    
+    expect(forecast).to be_a(Forecast)
+    expect(forecast.id).to eq(nil)
+    expect(forecast.current_weather).to be_a(Hash)
+    expect(forecast.daily_weather).to be_an(Array)
+    expect(forecast.hourly_weather).to be_an(Array)
   end
 end
