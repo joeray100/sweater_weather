@@ -5,7 +5,7 @@ class WeatherService
         lat: lat,
         lon: lon,
         exclude: 'minutely,alerts',
-        units: 'imperial',
+        units: 'imperial', # For temperature in Fahrenheit and wind speed in miles/hour, use units=imperial
         appid: ENV['WEATHER_API']
       )
       parse_json(response)
