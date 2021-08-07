@@ -1,8 +1,11 @@
 class ForecastFacade
   class << self
-    def city_coordinates_search(city_state)
+    def weather_search(city_state)
       attributes = MapQuestService.find_location(city_state)
-      Coordinates.new(attributes)
+      location = Coordinates.new(attributes)
+      weather = WeatherService.retrieve_forecast_data(location.latitude, location.longitude)
+
+      Forecast.new(weather)
     end
   end
 end
