@@ -149,7 +149,8 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (5.3.2)
+      nio4r (~> 2.0)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -275,7 +276,7 @@ DEPENDENCIES
   party-parrot-formatter
   pg (>= 0.18, < 2.0)
   pry
-  puma (~> 3.11)
+  puma (>= 4.3.8)
   rails (~> 5.2.6)
   rspec-rails (~> 5.0.0)
   shoulda-matchers
