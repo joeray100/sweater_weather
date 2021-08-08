@@ -18,4 +18,18 @@ RSpec.describe MapQuestService do
     expect(data[:results][0][:locations][0][:latLng]).to have_key(:lat)
     expect(data[:results][0][:locations][0][:latLng]).to have_key(:lng)
   end
+
+  it 'returns directions when given locations', :vcr do
+    path = { locations: ['Denver,CO', 'Pueblo,CO'] }
+    data = MapQuestService.create_route(path)
+
+    expect(data).to be_a(Hash)
+    expect(data[:route]).to be_a(Hash)
+    expect(data[:route][:formattedTime]).to be_a(String)
+    expect(data[:route][:time]).to be_a(Integer)
+
+    expect(data).to have_key(:route)
+    expect(data[:route]).to have_key(:formattedTime)
+    expect(data[:route]).to have_key(:time)
+  end
 end
