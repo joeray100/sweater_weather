@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.unsplash.com/search/photos?client_id=ul0NATlSQlJal_PE1RCFlOoQv4mS_jrF3-eFkTL6HY4&per_page=1&query=Denver,CO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.5.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1075'
+      Server:
+      - Cowboy
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Link,X-Total,X-Per-Page,X-RateLimit-Limit,X-RateLimit-Remaining
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Warning:
+      - The tags property in this endpoint is deprecated. https://changelog.unsplash.com/deprecations/2021/07/12/tags-search-deprecation.html
+      Link:
+      - <https://api.unsplash.com/search/photos?client_id=ul0NATlSQlJal_PE1RCFlOoQv4mS_jrF3-eFkTL6HY4&page=5064&per_page=1&query=Denver%2CCO>;
+        rel="last", <https://api.unsplash.com/search/photos?client_id=ul0NATlSQlJal_PE1RCFlOoQv4mS_jrF3-eFkTL6HY4&page=2&per_page=1&query=Denver%2CCO>;
+        rel="next"
+      X-Total:
+      - '5064'
+      X-Per-Page:
+      - '1'
+      Content-Type:
+      - application/json
+      Etag:
+      - W/"fa0fcf7cc14838214f43e955c5f8f752"
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '48'
+      X-Request-Id:
+      - 1cbc0b77-10be-453f-80e1-a787c81e8cb2
+      X-Runtime:
+      - '0.060371'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sun, 08 Aug 2021 02:09:59 GMT
+      Age:
+      - '5870'
+      X-Served-By:
+      - cache-dca17771-DCA, cache-den8234-DEN
+      X-Cache:
+      - MISS, HIT
+      X-Cache-Hits:
+      - 0, 1
+      X-Timer:
+      - S1628388600.836058,VS0,VE1
+      Vary:
+      - Accept-Encoding, Origin,Authorization,client-geo-region
+    body:
+      encoding: ASCII-8BIT
+      string: '{"total":5064,"total_pages":5064,"results":[{"id":"A4RpHR83luM","created_at":"2021-05-01T04:12:54-04:00","updated_at":"2021-08-07T03:27:48-04:00","promoted_at":null,"width":5954,"height":3969,"color":"#0c2626","blur_hash":"L867}^NGNIxY0gxaxENb==RkWXs,","description":"Night
+        Time Downtown Denver","alt_description":"city skyline during night time","urls":{"raw":"https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?ixid=MnwyNTIxNjV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2MjgzODI3Mjk\u0026ixlib=rb-1.2.1","full":"https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy\u0026cs=srgb\u0026fm=jpg\u0026ixid=MnwyNTIxNjV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2MjgzODI3Mjk\u0026ixlib=rb-1.2.1\u0026q=85","regular":"https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyNTIxNjV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2MjgzODI3Mjk\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=1080","small":"https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyNTIxNjV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2MjgzODI3Mjk\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400","thumb":"https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyNTIxNjV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2MjgzODI3Mjk\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=200"},"links":{"self":"https://api.unsplash.com/photos/A4RpHR83luM","html":"https://unsplash.com/photos/A4RpHR83luM","download":"https://unsplash.com/photos/A4RpHR83luM/download","download_location":"https://api.unsplash.com/photos/A4RpHR83luM/download?ixid=MnwyNTIxNjV8MHwxfHNlYXJjaHwxfHxEZW52ZXIlMkNDT3xlbnwwfHx8fDE2MjgzODI3Mjk"},"categories":[],"likes":4,"liked_by_user":false,"current_user_collections":[],"sponsorship":null,"user":{"id":"t2RB-3lbgSk","updated_at":"2021-08-07T15:10:31-04:00","username":"rdehamer","name":"Ryan
+        De Hamer","first_name":"Ryan","last_name":"De Hamer","twitter_username":null,"portfolio_url":"http://www.dehamermedia.com","bio":"Denver
+        -\u003e Anywhere\r\nMy images are collected all around the country working
+        with brands, athletes and fitness influencers","location":null,"links":{"self":"https://api.unsplash.com/users/rdehamer","html":"https://unsplash.com/@rdehamer","photos":"https://api.unsplash.com/users/rdehamer/photos","likes":"https://api.unsplash.com/users/rdehamer/likes","portfolio":"https://api.unsplash.com/users/rdehamer/portfolio","following":"https://api.unsplash.com/users/rdehamer/following","followers":"https://api.unsplash.com/users/rdehamer/followers"},"profile_image":{"small":"https://images.unsplash.com/profile-1577912636161-6a3ada136470image?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=32\u0026w=32","medium":"https://images.unsplash.com/profile-1577912636161-6a3ada136470image?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=64\u0026w=64","large":"https://images.unsplash.com/profile-1577912636161-6a3ada136470image?ixlib=rb-1.2.1\u0026q=80\u0026fm=jpg\u0026crop=faces\u0026cs=tinysrgb\u0026fit=crop\u0026h=128\u0026w=128"},"instagram_username":"Ryan_dehamer","total_collections":6,"total_likes":0,"total_photos":69,"accepted_tos":true,"for_hire":true,"social":{"instagram_username":"Ryan_dehamer","portfolio_url":"http://www.dehamermedia.com","twitter_username":null,"paypal_email":null}},"tags":[{"type":"search","title":"denver"},{"type":"search","title":"co"},{"type":"search","title":"usa"}]}]}'
+  recorded_at: Sun, 08 Aug 2021 02:09:59 GMT
+recorded_with: VCR 6.0.0
