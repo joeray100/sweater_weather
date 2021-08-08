@@ -29,17 +29,57 @@ RSpec.describe "Forecast API", type: :request do
       expect(weather[:data][:attributes][:daily_weather].count).to eq(5)
       expect(weather[:data][:attributes][:hourly_weather].count).to eq(8)
     end
+
+    it 'Testing should look for more than just the presence of attribute fields in the response. Testing should also determine which fields should NOT be present. (don’t send unnecessary data)', :vcr do
+      location = 'denver,co'
+      get "/api/v1/forecast?location=#{location}"
+
+      expect(response).to be_successful
+      weather = JSON.parse(response.body, symbolize_names: true)
+
+      # keys current weather should NOT have
+      expect(weather[:data][:attributes][:current_weather]).to_not have_key(:pressure)
+      expect(weather[:data][:attributes][:current_weather]).to_not have_key(:dew_point)
+      expect(weather[:data][:attributes][:current_weather]).to_not have_key(:clouds)
+      expect(weather[:data][:attributes][:current_weather]).to_not have_key(:wind_speed)
+      expect(weather[:data][:attributes][:current_weather]).to_not have_key(:wind_deg)
+      expect(weather[:data][:attributes][:current_weather]).to_not have_key(:wind_gust)
+
+      # keys daily weather should NOT have
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:moonrise)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:moonset)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:moon_phase)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:feels_like)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:pressure)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:humidity)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:dew_point)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:wind_speed)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:wind_deg)
+      expect(weather[:data][:attributes][:daily_weather][0]).to_not have_key(:wind_gust)
+
+      # keys hourly weather should NOT have
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:feels_like)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:pressure)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:humidity)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:dew_point)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:uvi)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:clouds)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:visibility)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:wind_speed)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:wind_deg)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:wind_gust)
+      expect(weather[:data][:attributes][:hourly_weather][0]).to_not have_key(:pop)
+    end
   end
 
-  # describe 'sad path' do
-  #   it 'bad location id returns 404' do
-  #     get "/api/v1/forecast?location=324"
-  #
-  #     require 'pry'; binding.pry
-  #     expect(response).to_not be_successful
-  #     expect(response).to have_http_status(404)
-  #     error = JSON.parse(response.body, symbolize_names: true)[:error]
-  #     expect(error).to eq("Couldn't find Merchant with 'id'=324")
-  #   end
-  # end
+  describe 'sad path' do
+    it 'return error if no location given', :vcr do
+      get "/api/v1/forecast?location="
+
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(404)
+      error = JSON.parse(response.body, symbolize_names: true)[:error]
+      expect(error).to eq('No location given')
+    end
+  end
 end
