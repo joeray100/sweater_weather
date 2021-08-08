@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users API' do
   describe 'happy path' do
-    it 'creates a user', :vcr do
+    it 'creates a user' do
       user_params = {
         "email": "whatever@example.com",
         "password": "password",
