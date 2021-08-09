@@ -42,7 +42,7 @@ RSpec.describe 'Breweries API' do
   end
 
   describe 'sad path' do
-    it 'quantity should be a positive integer greater than 0' do
+    it 'should return error if quantity is less than or equal to 0' do
       location = 'denver,co'
       quantity = 0
       get api_v1_breweries_path, params: { location: location, quantity: quantity}
@@ -52,6 +52,18 @@ RSpec.describe 'Breweries API' do
       expect(response).to_not be_successful
       expect(response).to have_http_status(400)
       expect(error_response).to eq('Quantity must be higher than 0')
+    end
+
+    it 'returns error if location is empty' do
+      location = ''
+      quantity = 5
+      get api_v1_breweries_path, params: { location: location, quantity: quantity}
+
+      error_response = JSON.parse(response.body, symbolize_names: true)[:error]
+
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(404)
+      expect(error_response).to eq('Please give a location to be searched')
     end
   end
 end
