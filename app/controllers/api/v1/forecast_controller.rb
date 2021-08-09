@@ -10,6 +10,6 @@ class Api::V1::ForecastController < ApplicationController
 
   def confirm_location
     @location = params[:location]
-    raise LocationError if @location.empty?
+    render json: { error: 'No location given' }, status: :not_found if @location.empty?
   end
 end

@@ -38,10 +38,30 @@ RSpec.describe 'Sessions API' do
     end
   end
 
-  # describe 'sad path' do
-  #   it '' do
-  #     get '/api/v1/'
-  #
-  #   end
-  # end
+  describe 'sad path' do
+    it 'return error if invalid information is used to login' do
+      # Register User
+      user_params = {
+        "email": "killer.crocs@no.com",
+        "password": "lincoln4logs",
+        "password_confirmation": "lincoln4logs"
+      }
+      headers = {"CONTENT_TYPE": "application/json"}
+      post '/api/v1/users', headers: headers, params: JSON.generate(user_params)
+
+      # Login User
+      login_params = {
+        "email": "killer.crocs@no.com",
+        "password": "testpassword"
+      }
+      headers = {"CONTENT_TYPE": "application/json"}
+      post '/api/v1/sessions', headers: headers, params: JSON.generate(login_params)
+
+      error_response = JSON.parse(response.body, symbolize_names: true)[:error]
+
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(406)
+      expect(error_response).to eq('Email or password are invalid')
+    end
+  end
 end

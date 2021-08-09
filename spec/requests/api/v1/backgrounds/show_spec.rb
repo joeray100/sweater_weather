@@ -35,11 +35,4 @@ RSpec.describe 'Backgrounds API' do
       expect(image[:data][:attributes][:image][:credit][:logo]).to be_a(String)
     end
   end
-
-  # describe 'sad path' do
-  #   it '' do
-  #     get '/api/v1/'
-  #
-  #   end
-  # end
 end
