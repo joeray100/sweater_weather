@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openbrewerydb.org/breweries?by_dist=39.742043,-104.991531&per_page=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.5.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 09 Aug 2021 15:16:40 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - max-age=86400, public
+      Etag:
+      - W/"5f5845689d417498675b37a1af816aaf"
+      X-Request-Id:
+      - 87ee7a97-850c-4508-8920-d0c1e9e51ae7
+      X-Runtime:
+      - '0.032469'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Origin
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '[{"id":11093,"obdb_id":"grandma-s-house-denver","name":"Grandma''s
+        House","brewery_type":"micro","street":"1710 S Broadway","address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80210-3102","country":"United
+        States","longitude":"-104.9872737","latitude":"39.74350567","phone":"3035786754","website_url":"http://www.grandmasbeer.com","updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"},{"id":13467,"obdb_id":"pints-pub-brewery-and-freehouse-denver","name":"Pints
+        Pub Brewery and Freehouse","brewery_type":"brewpub","street":"221 W 13th Ave","address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80204-2711","country":"United
+        States","longitude":"-104.9908538","latitude":"39.737018","phone":"3035347543","website_url":"http://www.pintspub.com","updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"},{"id":8245,"obdb_id":"aero-craft-brewing-denver","name":"Aero
+        Craft Brewing","brewery_type":"planning","street":null,"address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80212-2199","country":"United
+        States","longitude":"-104.984696","latitude":"39.7391428","phone":"3039185446","website_url":"http://www.aerocraft.beer","updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"},{"id":8962,"obdb_id":"black-beak-brewing-denver","name":"Black
+        Beak Brewing","brewery_type":"planning","street":null,"address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80237-1907","country":"United
+        States","longitude":"-104.984696","latitude":"39.7391428","phone":"3032107836","website_url":null,"updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"},{"id":11813,"obdb_id":"jagged-mountain-brewery-denver","name":"Jagged
+        Mountain Brewery","brewery_type":"micro","street":"1139 20th St","address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80202-1811","country":"United
+        States","longitude":"-104.9913673","latitude":"39.7522457","phone":"7206892337","website_url":"http://www.jaggedmountainbrewery.com","updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"}]'
+  recorded_at: Mon, 09 Aug 2021 15:16:40 GMT
+recorded_with: VCR 6.0.0
