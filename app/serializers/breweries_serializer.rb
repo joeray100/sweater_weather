@@ -1,4 +1,4 @@
 class BreweriesSerializer
   include JSONAPI::Serializer
-  attributes :breweries
+  attributes :destination, :forecast, :breweries
 end
