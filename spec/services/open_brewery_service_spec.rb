@@ -7,6 +7,8 @@ RSpec.describe OpenBreweryService do
 
     breweries = OpenBreweryService.find_breweries_list(location, quantity)
 
+    expect(breweries).to_not be_an(Hash)
+
     expect(breweries).to be_an(Array)
     expect(breweries[0][:id]).to be_an(Integer)
     expect(breweries[0][:name]).to be_a(String)
