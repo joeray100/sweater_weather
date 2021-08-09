@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe OpenBreweryService do
   it 'return a list of breweries by lat and lon', :vcr do
     location = '39.742043,-104.991531'
-    per_page = 5
+    quantity = 5
 
-    breweries = OpenBreweryService.find_breweries_list(location, per_page)
+    breweries = OpenBreweryService.find_breweries_list(location, quantity)
 
     expect(breweries).to be_an(Array)
     expect(breweries[0][:id]).to be_an(Integer)
