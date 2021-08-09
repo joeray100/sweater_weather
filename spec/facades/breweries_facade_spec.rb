@@ -24,5 +24,15 @@ RSpec.describe 'BreweriesFacade' do
     expect(facade.breweries[0]).to have_key(:id)
     expect(facade.breweries[0]).to have_key(:name)
     expect(facade.breweries[0]).to have_key(:brewery_type)
+
+    # Tests for what it should NOT have
+    expect(facade.forecast.count).to_not eq(3)
+    expect(facade.breweries.count).to_not eq(2)
+
+    expect(facade.forecast).to_not be_a(Array)
+    expect(facade.breweries).to_not be_a(Hash)
+
+    expect(facade.forecast[:temperature]).to_not be_a(Integer)
+    expect(facade.breweries[0][:id]).to_not be_a(String)
   end
 end
