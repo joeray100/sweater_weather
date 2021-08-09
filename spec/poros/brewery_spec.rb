@@ -39,6 +39,8 @@ RSpec.describe Brewery do
     expect(poro.breweries[0]).to have_key(:id)
     expect(poro.breweries[0]).to have_key(:name)
     expect(poro.breweries[0]).to have_key(:brewery_type)
+
+    # Tests for what it should NOT have
     expect(poro.breweries[0]).to_not have_key(:street)
     expect(poro.breweries[0]).to_not have_key(:city)
     expect(poro.breweries[0]).to_not have_key(:phone)
