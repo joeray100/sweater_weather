@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'BreweriesFacade' do
-  it 'returns brewery object with all of the necessary attributes' do
+  it 'returns brewery object with all of the necessary attributes', :vcr do
     location = 'denver,co'
     quantity = 5
     facade = BreweriesFacade.breweries_search(location, quantity)
