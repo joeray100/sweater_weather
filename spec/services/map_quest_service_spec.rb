@@ -20,8 +20,9 @@ RSpec.describe MapQuestService do
   end
 
   it 'returns directions when given locations', :vcr do
-    path = { locations: ['Denver,CO', 'Pueblo,CO'] }
-    data = MapQuestService.create_route(path)
+    origin = 'Denver,CO'
+    destination = 'Pueblo,CO'
+    data = MapQuestService.create_route(origin, destination)
 
     expect(data).to be_a(Hash)
     expect(data[:route]).to be_a(Hash)
