@@ -14,7 +14,7 @@ RSpec.describe Brewery do
     expect(poro).to be_an_instance_of(Brewery)
     expect(poro.id).to eq(nil)
     expect(poro.destination).to eq('denver,co')
-    expect(poro.forecast).to eq({:summary=>"clear sky", :temperature=>"85 F"})
+    expect(poro.forecast).to eq({:summary=>"scattered clouds", :temperature=>"91 F"})
     expect(poro.breweries).to eq([{:id=>8962, :name=>"Black Beak Brewing", :brewery_type=>"planning"},
      {:id=>8245, :name=>"Aero Craft Brewing", :brewery_type=>"planning"},
      {:id=>13467, :name=>"Pints Pub Brewery and Freehouse", :brewery_type=>"brewpub"},
