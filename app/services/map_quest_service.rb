@@ -1,7 +1,8 @@
-class MapQuestService
+class MapQuestService < BaseService
   class << self
     def find_location(location)
-      response = conn.get('/geocoding/v1/address',
+      response = conn('http://www.mapquestapi.com').get('/geocoding/v1/address',
+        key: ENV['MAP_Q_API'],
         location: location,
         maxResults: 1
       )
@@ -9,23 +10,12 @@ class MapQuestService
     end
 
     def create_route(origin, destination)
-      response = conn.get('/directions/v2/route',
+      response = conn('http://www.mapquestapi.com').get('/directions/v2/route',
+        key: ENV['MAP_Q_API'],
         from: origin,
         to: destination
       )
       parse_json(response)
-    end
-
-    private
-
-    def conn
-      Faraday.new(url: 'http://www.mapquestapi.com',
-        params: { key: ENV['MAP_Q_API'] }
-      )
-    end
-
-    def parse_json(response)
-      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end
