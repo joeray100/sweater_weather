@@ -1,43 +1,26 @@
-# require 'rails_helper'
-#
-# RSpec.describe Directions do
-#   it 'it should build a Directions PORO' do
-#
-#     poro = Directions.new(info)
-#
-#     expect(poro).to be_an_instance_of(Directions)
-#     expect(poro.id).to eq(278)
-#     expect(poro.title).to eq("The Shawshank Redemption")
-#     expect(poro.vote_average).to eq(8.7)
-#     expect(poro.runtime).to eq(142)
-#     expect(poro.format_genres).to eq("Drama, Crime")
-#   end
-# end
+require 'rails_helper'
 
-# {
-#   data: {
-#     id: null,
-#     type: 'roadtrip',
-#
-#     attributes: {
-#       start_city: 'Denver, CO',
-#       end_city: 'Estes Park, CO',
-#       travel_time: '2 hours, 13 minutes',
-#
-#       weather_at_eta: {
-#         temperature: 59.4,
-#         conditions: "partly cloudy with a chance of meatballs"
-#       }
-#     }
-#   }
-# }
+RSpec.describe Directions do
+  it 'it should build a Directions PORO', :vcr do
+    origin = 'Denver,CO'
+    destination = 'Pueblo,CO'
+    travel_time = MapQuestService.create_route(origin, destination)
+    coordinates = MapQuestService.find_location(destination)[:results][0][:locations][0][:latLng]
+    weather = WeatherService.retrieve_forecast_data(coordinates[:lat], coordinates[:lng])
 
+    poro = Directions.new(origin, destination, travel_time, weather)
 
-# [ attributes, an object containing road trip information
-# start_city, string, such as “Denver, CO”
-# end_city, string, such as “Estes Park, CO”
-# travel_time, string, something user-friendly like “2 hours, 13 minutes” or “2h13m” or “02:13:00” or something of that nature (you don’t have to include seconds); set this string to “impossible route” if there is no route between your cities
-# weather_at_eta, conditions at end_city when you arrive (not CURRENT weather), object containing:
-# temperature, numeric value in Fahrenheit
-# conditions, string, as given by OpenWeather
-# note: this object will be blank if the travel time is impossible ]
+    expect(poro).to be_an_instance_of(Directions)
+    expect(poro.id).to eq(nil)
+    expect(poro.start_city).to eq('Denver,CO')
+    expect(poro.end_city).to eq('Pueblo,CO')
+    expect(poro.travel_time).to eq("01:44:22")
+    expect(poro.weather_at_eta).to eq({:temperature=>90.07, :conditions=>"clear sky"})
+
+    expect(poro.id).to be_a(NilClass)
+    expect(poro.start_city).to be_a(String)
+    expect(poro.end_city).to be_a(String)
+    expect(poro.travel_time).to be_a(String)
+    expect(poro.weather_at_eta).to be_a(Hash)
+  end
+end
