@@ -30,7 +30,7 @@ class Directions
         temperature: weather[:hourly][@travel_time.to_i][:temp],
         conditions: weather[:hourly][@travel_time.to_i][:weather][0][:description]
       }
-    elsif @travel_time.to_time.hour > 48 < 192 # more than 2 less than 8 days
+    elsif @travel_time.to_i > 48 && @travel_time.to_i < 192 # more than 2 less than 8 days
       {
         temperature: weather[:daily][@travel_time.to_i/24 - 1][:temp][:day],
         conditions: weather[:daily][@travel_time.to_i/24 - 1][:weather][0][:description]
