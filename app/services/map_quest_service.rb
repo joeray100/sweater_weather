@@ -8,10 +8,10 @@ class MapQuestService
       parse_json(response)
     end
 
-    def create_route(path)
+    def create_route(origin, destination)
       response = conn.get('/directions/v2/route',
-        from: path[:locations][0],
-        to: path[:locations][1]
+        from: origin,
+        to: destination
       )
       parse_json(response)
     end
