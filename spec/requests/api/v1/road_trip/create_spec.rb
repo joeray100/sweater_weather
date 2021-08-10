@@ -39,7 +39,7 @@ RSpec.describe 'RoatTrip API' do
       expect(trip[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
     end
 
-    it 'returns correct info for long road trip' do
+    it 'returns correct info for 40 hour road trip', :vcr do
       params = {
         origin: 'New York, NY',
         destination: 'Los Angeles, CA',
@@ -48,14 +48,33 @@ RSpec.describe 'RoatTrip API' do
 
       post api_v1_road_trip_index_path, params: params
 
-      error = JSON.parse(response.body, symbolize_names: true)
+      trip = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
-      expect(error[:data][:attributes][:start_city]).to eq('New York, NY')
-      expect(error[:data][:attributes][:end_city]).to eq('Los Angeles, CA')
-      expect(error[:data][:attributes][:travel_time]).to eq('40:34:31')
-      expect(error[:data][:attributes][:weather_at_eta][:temperature]).to eq(74.14)
-      expect(error[:data][:attributes][:weather_at_eta][:conditions]).to eq('clear sky')
+      expect(trip[:data][:attributes][:start_city]).to eq('New York, NY')
+      expect(trip[:data][:attributes][:end_city]).to eq('Los Angeles, CA')
+      expect(trip[:data][:attributes][:travel_time]).to eq('40:34:31')
+      expect(trip[:data][:attributes][:weather_at_eta][:temperature]).to eq(74.91)
+      expect(trip[:data][:attributes][:weather_at_eta][:conditions]).to eq('clear sky')
+    end
+
+    it 'returns correct info for 51 hour road trip', :vcr do
+      params = {
+        origin: 'Forks, WA',
+        destination: 'Miami, FL',
+        api_key: "6Rc89gwyIQDS0gNa43t1iuyLSvodkito"
+      }
+
+      post api_v1_road_trip_index_path, params: params
+
+      trip = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(trip[:data][:attributes][:start_city]).to eq('Forks, WA')
+      expect(trip[:data][:attributes][:end_city]).to eq('Miami, FL')
+      expect(trip[:data][:attributes][:travel_time]).to eq('51:02:08')
+      expect(trip[:data][:attributes][:weather_at_eta][:temperature]).to eq(87.31)
+      expect(trip[:data][:attributes][:weather_at_eta][:conditions]).to eq('light rain')
     end
   end
 
