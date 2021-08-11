@@ -33,8 +33,9 @@ RSpec.describe 'Sessions API' do
       expect(login_user[:data][:attributes]).to have_key(:email)
       expect(login_user[:data][:attributes]).to have_key(:api_key)
 
-      expect(login_user[:data][:attributes][:api_key]).to_not eq(nil)
+      expect(login_user[:data][:attributes][:email]).to be_a(String)
       expect(login_user[:data][:attributes][:api_key]).to be_a(String)
+      expect(login_user[:data][:attributes][:api_key]).to_not eq(nil)
     end
   end
 
