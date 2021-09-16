@@ -266,11 +266,16 @@ https://sweater-weather-jr.herokuapp.com/api/v1/road_trip
 ```ruby
 {
   "data": {
-    "type": "users",
-    "id": "1",
+    "id": null,
+    "type": "roadtrip",
     "attributes": {
-      "email": "whatever@example.com",
-      "api_key": "jgn983hy48thw9begh98h4539h4"
+      "start_city": "Denver,CO",
+      "end_city": "Pueblo,CO",
+      "travel_time": "01:44:22",
+      "weather_at_eta": {
+        "temperature": 89.73,
+        "conditions": "clear sky"
+      }
     }
   }
 }
