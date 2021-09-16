@@ -23,7 +23,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 10 Aug 2021 22:56:15 GMT
+      - Thu, 16 Sep 2021 02:05:18 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cache-Control:
@@ -31,9 +31,9 @@ http_interactions:
       Etag:
       - W/"5f5845689d417498675b37a1af816aaf"
       X-Request-Id:
-      - eda78b45-4064-49e4-8d03-8b7a6e929ce4
+      - a0c729e7-4d58-4345-b7b9-da8cafa4a124
       X-Runtime:
-      - '0.031027'
+      - '0.034302'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Vary:
@@ -55,5 +55,5 @@ http_interactions:
         States","longitude":"-104.984696","latitude":"39.7391428","phone":"3032107836","website_url":null,"updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"},{"id":11813,"obdb_id":"jagged-mountain-brewery-denver","name":"Jagged
         Mountain Brewery","brewery_type":"micro","street":"1139 20th St","address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80202-1811","country":"United
         States","longitude":"-104.9913673","latitude":"39.7522457","phone":"7206892337","website_url":"http://www.jaggedmountainbrewery.com","updated_at":"2018-08-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"}]'
-  recorded_at: Tue, 10 Aug 2021 22:56:15 GMT
+  recorded_at: Thu, 16 Sep 2021 02:05:18 GMT
 recorded_with: VCR 6.0.0

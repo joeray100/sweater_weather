@@ -54,7 +54,7 @@ RSpec.describe 'RoatTrip API' do
       expect(trip[:data][:attributes][:start_city]).to eq('New York, NY')
       expect(trip[:data][:attributes][:end_city]).to eq('Los Angeles, CA')
       expect(trip[:data][:attributes][:travel_time]).to eq('40:34:31')
-      expect(trip[:data][:attributes][:weather_at_eta][:temperature]).to eq(74.91)
+      expect(trip[:data][:attributes][:weather_at_eta][:temperature]).to eq(74.48)
       expect(trip[:data][:attributes][:weather_at_eta][:conditions]).to eq('clear sky')
     end
 
@@ -73,7 +73,7 @@ RSpec.describe 'RoatTrip API' do
       expect(trip[:data][:attributes][:start_city]).to eq('Forks, WA')
       expect(trip[:data][:attributes][:end_city]).to eq('Miami, FL')
       expect(trip[:data][:attributes][:travel_time]).to eq('51:02:08')
-      expect(trip[:data][:attributes][:weather_at_eta][:temperature]).to eq(87.31)
+      expect(trip[:data][:attributes][:weather_at_eta][:temperature]).to eq(86.47)
       expect(trip[:data][:attributes][:weather_at_eta][:conditions]).to eq('light rain')
     end
   end
