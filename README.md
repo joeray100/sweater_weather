@@ -282,6 +282,9 @@ https://sweater-weather-jr.herokuapp.com/api/v1/road_trip
 ```
 
 ## Deployment
+
+**Please note, Heroku is no longer offering a free tier. I am working to move this application to a new platform for deployment.**
+
 To deploy in production on Heroku, please execute the following steps.
 >In your terminal run the following commands for Heroku CLI
 
